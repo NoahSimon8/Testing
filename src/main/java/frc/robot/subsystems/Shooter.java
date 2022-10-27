@@ -8,98 +8,28 @@ import frc.robot.Constants;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 public class Shooter extends SubsystemBase {
 
+  private WPI_TalonFX leftMotor = new WPI_TalonFX(Constants.Shooter.left_shooter_motor);
+  private WPI_TalonFX rightMotor = new WPI_TalonFX(Constants.Shooter.right_shooter_motor);
 
-  private MotorController leftShooterMotor = new MotorController(){
 
-    @Override
-    public void set(double speed) {
-      // TODO Auto-generated method stub
-    }
 
-    @Override
-    public double get() {
-      // TODO Auto-generated method stub
-      return 0;
-    }
+  private MotorControllerGroup shooterMotorGroup = new MotorControllerGroup(leftMotor, rightMotor);
 
-    @Override
-    public void setInverted(boolean isInverted) {
-      // TODO Auto-generated method stub
-      
-    }
-
-    @Override
-    public boolean getInverted() {
-      // TODO Auto-generated method stub
-      return false;
-    }
-
-    @Override
-    public void disable() {
-      // TODO Auto-generated method stub
-      
-    }
-
-    @Override
-    public void stopMotor() {
-      // TODO Auto-generated method stub
-      
-    }
-
-  };
-    
   
-  private MotorController rightShooterMotor = new MotorController(){
-
-    @Override
-    public void set(double speed) {
-      // TODO Auto-generated method stub
-      
-    }
-
-    @Override
-    public double get() {
-      // TODO Auto-generated method stub
-      return 0;
-    }
-
-    @Override
-    public void setInverted(boolean isInverted) {
-      // TODO Auto-generated method stub
-      
-    }
-
-    @Override
-    public boolean getInverted() {
-      // TODO Auto-generated method stub
-      return false;
-    }
-
-    @Override
-    public void disable() {
-      // TODO Auto-generated method stub
-      
-    }
-
-    @Override
-    public void stopMotor() {
-      // TODO Auto-generated method stub
-      
-    }
-  };
-
-
-  private MotorControllerGroup shooter = new MotorControllerGroup(leftShooterMotor,rightShooterMotor );
-
 
 
   /** Creates a new ExampleSubsystem. */
   public Shooter() {
-
-    int test = Constants.Shooter.left_shooter_motor;
-
+    leftMotor.setInverted(true);
+    
     
   }
+
+  public void setSpeed(double speed){
+    shooterMotorGroup.set(speed);
+
+  }
+
 
   @Override
   public void periodic() {
