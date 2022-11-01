@@ -4,6 +4,8 @@
 
 package frc.robot;
 
+import java.util.Scanner;
+
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.XboxController.Button;
@@ -53,6 +55,9 @@ public class RobotContainer {
 
     A.whenHeld(upperShootCommand);
     B.whenHeld(lowerShootCommand);
+
+    Scanner scan = new Scanner(System.in);
+    String inp = scan.nextLine();
 
   }
 

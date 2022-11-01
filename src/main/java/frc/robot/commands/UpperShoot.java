@@ -16,7 +16,6 @@ public class UpperShoot extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
   private final Shooter shooterSubsystem;
 
-  private String inp = "";
 
   /**
    * Creates a new ExampleCommand.

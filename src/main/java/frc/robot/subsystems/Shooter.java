@@ -6,6 +6,9 @@ import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
+
+
+
 public class Shooter extends SubsystemBase {
 
   private WPI_TalonFX leftMotor = new WPI_TalonFX(Constants.Shooter.left_shooter_motor);
@@ -15,13 +18,10 @@ public class Shooter extends SubsystemBase {
 
   private MotorControllerGroup shooterMotorGroup = new MotorControllerGroup(leftMotor, rightMotor);
 
-  
-
 
   /** Creates a new ExampleSubsystem. */
   public Shooter() {
     leftMotor.setInverted(true);
-    
     
   }
 

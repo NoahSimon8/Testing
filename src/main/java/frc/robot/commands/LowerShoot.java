@@ -13,6 +13,9 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Shooter;
 /** An example command that uses an example subsystem. */
 public class LowerShoot extends CommandBase {
+
+
+  
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
   private final Shooter shooterSubsystem;
 
