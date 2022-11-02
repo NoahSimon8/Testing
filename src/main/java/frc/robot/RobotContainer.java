@@ -7,10 +7,13 @@ package frc.robot;
 import java.util.Scanner;
 
 import edu.wpi.first.wpilibj.GenericHID;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.XboxController.Button;
 import frc.robot.commands.ExampleCommand;
+import frc.robot.commands.TankDrive;
 import frc.robot.commands.UpperShoot;
+import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.Shooter;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -29,10 +32,11 @@ public class RobotContainer {
 
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
 
-  private final Shooter shooterSubsytem = new Shooter();
+  private final Shooter m_shooter = new Shooter();
+  private final DriveTrain m_drivetrain = new DriveTrain();
 
-  private final UpperShoot upperShootCommand = new UpperShoot(shooterSubsytem);
-  private final UpperShoot lowerShootCommand = new UpperShoot(shooterSubsytem);
+  private final UpperShoot upperShootCommand = new UpperShoot(m_shooter);
+  private final UpperShoot lowerShootCommand = new UpperShoot(m_shooter);
 
 
 
@@ -56,8 +60,10 @@ public class RobotContainer {
     A.whenHeld(upperShootCommand);
     B.whenHeld(lowerShootCommand);
 
-    Scanner scan = new Scanner(System.in);
-    String inp = scan.nextLine();
+    m_drivetrain.setDefaultCommand(new TankDrive(m_drivetrain, pilot::getLeftY, pilot::getRightY)); // so rn, to go straight, its up on both sticks?
+
+    
+
 
   }
 

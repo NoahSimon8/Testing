@@ -14,7 +14,7 @@ import frc.robot.subsystems.Shooter;
 /** An example command that uses an example subsystem. */
 public class UpperShoot extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
-  private final Shooter shooterSubsystem;
+  private final Shooter m_shooter;
 
 
   /**
@@ -23,7 +23,7 @@ public class UpperShoot extends CommandBase {
    * @param subsystem The subsystem used by this command.
    */
   public UpperShoot(Shooter subsystem) {
-    shooterSubsystem = subsystem;
+    m_shooter = subsystem;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(subsystem);
   }
@@ -31,7 +31,7 @@ public class UpperShoot extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    shooterSubsystem.setSpeed(0);
+    m_shooter.setSpeed(0);
   
 
   }
@@ -41,14 +41,14 @@ public class UpperShoot extends CommandBase {
   public void execute() {
 
 
-    shooterSubsystem.setSpeed(0.6);
+    m_shooter.setSpeed(0.6);
     
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    shooterSubsystem.setSpeed(0);
+    m_shooter.setSpeed(0);
 
   }
 
