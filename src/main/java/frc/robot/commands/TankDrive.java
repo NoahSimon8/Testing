@@ -29,14 +29,14 @@ public class TankDrive extends CommandBase {
   /**
    * Creates a new ExampleCommand.
    *
-   * @param subsystem The subsystem used by this command.
+   * @param drivetrain The subsystem used by this command.
    */
 
 
 
 
-  public TankDrive(DriveTrain subsystem, DoubleSupplier left, DoubleSupplier right) {
-    m_drivetrain = subsystem;
+  public TankDrive(DriveTrain drivetrain, DoubleSupplier left, DoubleSupplier right) {
+    this.m_drivetrain = drivetrain;
     this.left = left;
     this.right = right;
 
@@ -44,13 +44,16 @@ public class TankDrive extends CommandBase {
 
 
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(subsystem);
+    addRequirements(drivetrain);
   }
 
 
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {}
+  public void initialize() {
+    m_drivetrain.tankDrive(0,0);
+
+  }
 
 
   // Called every time the scheduler runs while the command is scheduled.
@@ -62,7 +65,10 @@ public class TankDrive extends CommandBase {
 
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {}
+  public void end(boolean interrupted) {
+    m_drivetrain.tankDrive(0,0);
+
+  }
 
 
   // Returns true when the command should end.

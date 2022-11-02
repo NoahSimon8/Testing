@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 import frc.robot.commands.LowerShoot;
 
+import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 
 public class DriveTrain extends SubsystemBase {
@@ -27,7 +28,11 @@ public class DriveTrain extends SubsystemBase {
 
 
   public DriveTrain() {
-        rightMotors.setInverted(true);
+    rightMotors.setInverted(true);
+    leftFrontMotor.setNeutralMode(NeutralMode.Coast);
+    rightFrontMotor.setNeutralMode(NeutralMode.Coast);
+    leftBackMotor.setNeutralMode(NeutralMode.Coast);
+    rightBackMotor.setNeutralMode(NeutralMode.Coast);
 
 
   }
