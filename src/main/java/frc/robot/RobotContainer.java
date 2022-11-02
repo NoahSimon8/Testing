@@ -59,11 +59,8 @@ public class RobotContainer {
 
     A.whenHeld(upperShootCommand);
     B.whenHeld(lowerShootCommand);
-
-    m_drivetrain.setDefaultCommand(new TankDrive(m_drivetrain, pilot::getLeftY, pilot::getRightY)); // so rn, to go straight, its up on both sticks?
-
-    
-
+    // Shooter commands and subclass in this branch, or delete? Prob delete right so rn, to go straight, its up on both sticks?
+    m_drivetrain.setDefaultCommand(new TankDrive(m_drivetrain, pilot::getLeftY, pilot::getRightY)); 
 
   }
 
