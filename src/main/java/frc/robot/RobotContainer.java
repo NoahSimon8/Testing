@@ -34,7 +34,7 @@ public class RobotContainer {
 
   // private final Shooter shooter = new Shooter();
   private final DriveTrain drivetrain = new DriveTrain();
-
+// 
   // private final UpperShoot upperShootCommand = new UpperShoot(shooter);
   // private final UpperShoot lowerShootCommand = new UpperShoot(shooter);
 
@@ -54,8 +54,8 @@ public class RobotContainer {
    */
   private void configureButtonBindings() {
     XboxController pilot = new XboxController(0);
-    JoystickButton A = new JoystickButton(pilot, Button.kA.value);
-    JoystickButton B = new JoystickButton(pilot, Button.kB.value);
+    // JoystickButton A = new JoystickButton(pilot, Button.kA.value);
+    // JoystickButton B = new JoystickButton(pilot, Button.kB.value);
 
     // A.whenHeld(upperShootCommand);
     // B.whenHeld(lowerShootCommand);
