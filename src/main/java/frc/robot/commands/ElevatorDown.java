@@ -4,69 +4,52 @@
 
 package frc.robot.commands;
 
+import frc.robot.Constants;
+import frc.robot.subsystems.Elevator;
 import frc.robot.subsystems.ExampleSubsystem;
-
-import java.util.function.BooleanSupplier;
-import java.util.function.DoubleSupplier;
-
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.DriveTrain;
 
 /** An example command that uses an example subsystem. */
-public class TankDrive extends CommandBase {
+public class ElevatorDown extends CommandBase {
 
   
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
-
-
-  private final DriveTrain m_drivetrain;
-  
-  private DoubleSupplier left;
-  private DoubleSupplier right;
-
-
+  private final Elevator elevator;
 
   /**
    * Creates a new ExampleCommand.
    *
-   * @param drivetrain The subsystem used by this command.
+   * @param subsystem The subsystem used by this command.
    */
 
 
 
 
-  public TankDrive(DriveTrain drivetrain, DoubleSupplier left, DoubleSupplier right) {
-    this.m_drivetrain = drivetrain;
-    this.left = left;
-    this.right = right;
-
-
-
-
+  public ElevatorDown(Elevator elevator) {
+    this.elevator = elevator;
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(drivetrain);
+    addRequirements(elevator);
   }
 
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    m_drivetrain.tankDrive(0,0);
-
+    elevator.moveElevator(0);
   }
 
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m_drivetrain.tankDrive(left.getAsDouble(),right.getAsDouble());
+    elevator.moveElevator(-Constants.Elevator.elevator_speed);
 
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    m_drivetrain.tankDrive(0,0);
+    elevator.moveElevator(0);
 
   }
 

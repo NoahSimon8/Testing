@@ -10,9 +10,9 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.XboxController.Button;
+import frc.robot.commands.ElevatorDown;
 import frc.robot.commands.ExampleCommand;
-import frc.robot.commands.TankDrive;
-import frc.robot.subsystems.DriveTrain;
+import frc.robot.subsystems.Elevator;
 import frc.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
@@ -30,8 +30,9 @@ public class RobotContainer {
 
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
 
-  private final DriveTrain drivetrain = new DriveTrain();
-// 
+  private final Elevator elevator = new Elevator();
+  
+  private final ElevatorDown elevatorDownCommand = new ElevatorDown(elevator);
 
 
 
@@ -48,10 +49,12 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
+
     XboxController pilot = new XboxController(0);
 
-    // Shooter commands and subclass in this branch, or delete? Prob delete right so rn, to go straight, its up on both sticks?
-    drivetrain.setDefaultCommand(new TankDrive(drivetrain, pilot::getLeftY, pilot::getRightY)); 
+    // I don't know how to do set the binding for this
+
+
 
   }
 
