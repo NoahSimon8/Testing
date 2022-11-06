@@ -32,11 +32,8 @@ public class RobotContainer {
 
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
 
-  // private final Shooter shooter = new Shooter();
   private final DriveTrain drivetrain = new DriveTrain();
 // 
-  // private final UpperShoot upperShootCommand = new UpperShoot(shooter);
-  // private final UpperShoot lowerShootCommand = new UpperShoot(shooter);
 
 
 
@@ -54,11 +51,7 @@ public class RobotContainer {
    */
   private void configureButtonBindings() {
     XboxController pilot = new XboxController(0);
-    // JoystickButton A = new JoystickButton(pilot, Button.kA.value);
-    // JoystickButton B = new JoystickButton(pilot, Button.kB.value);
 
-    // A.whenHeld(upperShootCommand);
-    // B.whenHeld(lowerShootCommand);
     // Shooter commands and subclass in this branch, or delete? Prob delete right so rn, to go straight, its up on both sticks?
     drivetrain.setDefaultCommand(new TankDrive(drivetrain, pilot::getLeftY, pilot::getRightY)); 
 
