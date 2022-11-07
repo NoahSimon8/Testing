@@ -3,17 +3,18 @@
 // the WPILib BSD license file in the root directory of this project.
 
 package frc.robot.commands;
+
 import frc.robot.Constants;
 import frc.robot.subsystems.ExampleSubsystem;
-import frc.robot.subsystems.Shintake;
+import frc.robot.subsystems.Turret;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 /** An example command that uses an example subsystem. */
-public class ShintakeForward extends CommandBase {
+public class TurretLeft extends CommandBase {
 
   
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
-  private final Shintake shintake;
+  private final Turret turret;
 
   /**
    * Creates a new ExampleCommand.
@@ -22,31 +23,33 @@ public class ShintakeForward extends CommandBase {
    */
 
 
-  public ShintakeForward(Shintake shintake) {
-    this.shintake = shintake;
+
+
+  public TurretLeft(Turret turret) {
+    this.turret = turret;
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(shintake);
+    addRequirements(turret);
   }
 
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-      shintake.moveShintake(0);
+      turret.moveTurret(0);
   }
 
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    shintake.moveShintake(Constants.Shintake.shintake_speed);
+    turret.moveTurret(Constants.Turret.turret_speed);
 
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    shintake.moveShintake(0);
+    turret.moveTurret(0);
 
   }
 

@@ -16,10 +16,10 @@ public final class Constants {
 
 
 
-    public static final class Shintake{
-        public static final int front_shintake_motor = 23;
-        public static final int back_shooter_motor = 24;
-        public static final double shintake_speed = 0.5;
+    public static final class Turret{
+        public static final int turret_motor = 22;
+        public static final double turret_speed = 0.3;
+
 
     }
 
