@@ -17,6 +17,7 @@ import frc.robot.subsystems.Elevator;
 import frc.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import edu.wpi.first.wpilibj2.command.button.POVButton;
 import edu.wpi.first.wpilibj.XboxController;
 
 /**
@@ -54,8 +55,13 @@ public class RobotContainer {
 
     XboxController pilot = new XboxController(0);
 
-    // I don't know how to do set the binding for this
 
+    POVButton upDPad = new POVButton(pilot, 0);
+    POVButton downDPad = new POVButton(pilot, 180);
+
+    upDPad.whenHeld(elevatorUpCommand);
+    downDPad.whenHeld(elevatorDownCommand);
+    
 
 
   }
