@@ -10,7 +10,10 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.XboxController.Button;
 import frc.robot.commands.ExampleCommand;
+import frc.robot.commands.TurretLeft;
+import frc.robot.commands.TurretRight;
 import frc.robot.subsystems.ExampleSubsystem;
+import frc.robot.subsystems.Turret;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj.XboxController;
@@ -27,6 +30,10 @@ public class RobotContainer {
 
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
 
+  private final Turret turret = new Turret();
+
+  private final TurretLeft turretLeftCommand = new TurretLeft(turret);
+  private final TurretRight turretRightCommand = new TurretRight(turret);
 
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
@@ -47,8 +54,8 @@ public class RobotContainer {
     JoystickButton leftBumper = new JoystickButton(pilot, Button.kLeftBumper.value);
     JoystickButton rightBumper = new JoystickButton(pilot, Button.kRightBumper.value);
 
-    // leftBumper.whenHeld(shintakeForwardCommand);
-    // rightBumper.whenHeld(shintakeBackCommand);
+    leftBumper.whenHeld(turretLeftCommand);
+    rightBumper.whenHeld(turretRightCommand);
 
   }
 
