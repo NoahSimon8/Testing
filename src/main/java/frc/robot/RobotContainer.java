@@ -54,6 +54,7 @@ public class RobotContainer {
     JoystickButton leftBumper = new JoystickButton(pilot, Button.kLeftBumper.value);
     JoystickButton rightBumper = new JoystickButton(pilot, Button.kRightBumper.value);
 
+    // move turret left with left bumper, right with right bumper
     leftBumper.whenHeld(turretLeftCommand);
     rightBumper.whenHeld(turretRightCommand);
 

@@ -26,6 +26,7 @@ public class TurretLeft extends CommandBase {
 
 
   public TurretLeft(Turret turret) {
+    // intantiate turret object
     this.turret = turret;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(turret);
@@ -35,6 +36,7 @@ public class TurretLeft extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
+    // starting turet speed is 0
       turret.moveTurret(0);
   }
 
@@ -42,6 +44,7 @@ public class TurretLeft extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
+    // move the turret at a consistant speed
     turret.moveTurret(Constants.Turret.turret_speed);
 
   }
@@ -49,6 +52,7 @@ public class TurretLeft extends CommandBase {
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
+    // set ending speed to 0
     turret.moveTurret(0);
 
   }
