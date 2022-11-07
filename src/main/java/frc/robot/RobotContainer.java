@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.XboxController.Button;
 import frc.robot.commands.ElevatorDown;
+import frc.robot.commands.ElevatorUp;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.Elevator;
 import frc.robot.subsystems.ExampleSubsystem;
@@ -33,6 +34,7 @@ public class RobotContainer {
   private final Elevator elevator = new Elevator();
   
   private final ElevatorDown elevatorDownCommand = new ElevatorDown(elevator);
+  private final ElevatorUp elevatorUpCommand = new ElevatorUp(elevator);
 
 
 
