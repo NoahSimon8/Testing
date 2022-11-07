@@ -10,9 +10,8 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.XboxController.Button;
 import frc.robot.commands.ExampleCommand;
-import frc.robot.commands.UpperShoot;
 import frc.robot.subsystems.ExampleSubsystem;
-import frc.robot.subsystems.Shooter;
+import frc.robot.subsystems.Shintake;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj.XboxController;
@@ -29,12 +28,8 @@ public class RobotContainer {
 
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
 
-  private final Shooter shooterSubsytem = new Shooter();
 
-  private final UpperShoot upperShootCommand = new UpperShoot(shooterSubsytem);
-  private final UpperShoot lowerShootCommand = new UpperShoot(shooterSubsytem);
-
-
+  private final Shintake shintake = new Shintake();
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -50,14 +45,10 @@ public class RobotContainer {
    */
   private void configureButtonBindings() {
     XboxController pilot = new XboxController(0);
-    JoystickButton A = new JoystickButton(pilot, Button.kA.value);
-    JoystickButton B = new JoystickButton(pilot, Button.kB.value);
 
-    A.whenHeld(upperShootCommand);
-    B.whenHeld(lowerShootCommand);
+    JoystickButton rightBumper = new JoystickButton(pilot, Button.kRightBumper.value);
 
-    Scanner scan = new Scanner(System.in);
-    String inp = scan.nextLine();
+    // rightBumper.whenHeld(command);
 
   }
 
