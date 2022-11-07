@@ -10,6 +10,8 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.XboxController.Button;
 import frc.robot.commands.ExampleCommand;
+import frc.robot.commands.ShintakeBack;
+import frc.robot.commands.ShintakeForward;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.Shintake;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -31,6 +33,10 @@ public class RobotContainer {
 
   private final Shintake shintake = new Shintake();
 
+  private final ShintakeForward shintakeForwardCommand = new ShintakeForward(shintake);
+  private final ShintakeBack shintakeBackCommand = new ShintakeBack(shintake);
+
+
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the button bindings
@@ -46,9 +52,11 @@ public class RobotContainer {
   private void configureButtonBindings() {
     XboxController pilot = new XboxController(0);
 
+    JoystickButton leftBumper = new JoystickButton(pilot, Button.kLeftBumper.value);
     JoystickButton rightBumper = new JoystickButton(pilot, Button.kRightBumper.value);
 
-    // rightBumper.whenHeld(command);
+    leftBumper.whenHeld(shintakeForwardCommand);
+    rightBumper.whenHeld(shintakeBackCommand);
 
   }
 

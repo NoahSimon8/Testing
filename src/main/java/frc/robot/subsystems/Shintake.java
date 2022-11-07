@@ -9,6 +9,7 @@ import frc.robot.Constants;
 
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
+import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 
 
 public class Shintake extends SubsystemBase {
@@ -16,6 +17,9 @@ public class Shintake extends SubsystemBase {
 
   private WPI_TalonFX frontMotor = new WPI_TalonFX(Constants.Shintake.front_shintake_motor);
   private WPI_TalonFX backMotor = new WPI_TalonFX(Constants.Shintake.back_shooter_motor);
+
+  private MotorControllerGroup shintakeMotorGroup = new MotorControllerGroup(frontMotor, backMotor);
+
 
 
   public Shintake() {
@@ -25,8 +29,11 @@ public class Shintake extends SubsystemBase {
 
 
   }
+// should this be one or two methods for up and down?
+  public void moveShintake(double speed){
+    shintakeMotorGroup.set(speed);
 
-
+  }
 
 
 
