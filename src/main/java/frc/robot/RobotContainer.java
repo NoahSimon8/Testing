@@ -55,13 +55,12 @@ public class RobotContainer {
 
     XboxController pilot = new XboxController(0);
 
-
     POVButton upDPad = new POVButton(pilot, 0);
     POVButton downDPad = new POVButton(pilot, 180);
 
     upDPad.whenHeld(elevatorUpCommand);
     downDPad.whenHeld(elevatorDownCommand);
-    
+
 
 
   }
