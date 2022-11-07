@@ -32,6 +32,7 @@ public class ArcadeDrive extends CommandBase {
 
 
   public ArcadeDrive(DriveTrain drivetrain, DoubleSupplier forward, DoubleSupplier side) {
+    // instantiate the instance variables
     this.drivetrain = drivetrain;
     this.forward = forward;
     this.side = side;
@@ -45,6 +46,7 @@ public class ArcadeDrive extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
+    // start values at 0
     drivetrain.arcadeDrive(0,0);
 
   }
@@ -53,6 +55,7 @@ public class ArcadeDrive extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
+    // use getter lambda's to retrieve speeds
     drivetrain.arcadeDrive(forward.getAsDouble(),side.getAsDouble());
 
   }
@@ -60,6 +63,7 @@ public class ArcadeDrive extends CommandBase {
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
+    // set ending values to 0
     drivetrain.arcadeDrive(0,0);
 
   }

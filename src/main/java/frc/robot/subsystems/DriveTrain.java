@@ -24,11 +24,12 @@ public class DriveTrain extends SubsystemBase {
   private MotorControllerGroup leftMotors = new MotorControllerGroup(leftFrontMotor, leftBackMotor);
   private MotorControllerGroup rightMotors = new MotorControllerGroup(rightFrontMotor, rightBackMotor);
   
-
+// Creates a differential drive object
   private DifferentialDrive drive = new DifferentialDrive(leftMotors, rightMotors);
 
 
   public DriveTrain() {
+    // All motors coast, right motors are inverted
     rightMotors.setInverted(true);
     leftFrontMotor.setNeutralMode(NeutralMode.Coast);
     rightFrontMotor.setNeutralMode(NeutralMode.Coast);
@@ -39,6 +40,7 @@ public class DriveTrain extends SubsystemBase {
   }
 
   public void tankDrive(double left_speed, double right_speed){
+    // left and right motors move indepentdantly
       leftMotors.set(left_speed);
       rightMotors.set(right_speed);
 
@@ -46,6 +48,7 @@ public class DriveTrain extends SubsystemBase {
 
 
   public void arcadeDrive(double speed, double rotation){
+    // left and right motors are controlled with the differential drive class
     drive.arcadeDrive(speed, rotation * Constants.DriveTrain.rotation_speed); // why was it negative ration in the btab code? 
 
   }

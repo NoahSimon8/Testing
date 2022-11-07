@@ -51,7 +51,10 @@ public class RobotContainer {
   private void configureButtonBindings() {
     XboxController pilot = new XboxController(0);
 
-    // Shooter commands and subclass in this branch, or delete? Prob delete right so rn, to go straight, its up on both sticks?
+// Sets the driving default to Tank Drive so it is always active
+    // drivetrain.setDefaultCommand(new TankDrive(drivetrain, pilot::getLeftY, pilot::getRightY)); 
+
+// Sets the driving default to Aracde Drive so it is always active
     drivetrain.setDefaultCommand(new ArcadeDrive(drivetrain, pilot::getLeftY, pilot::getRightY)); 
 
   }
