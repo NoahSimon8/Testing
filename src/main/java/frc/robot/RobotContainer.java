@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.XboxController.Button;
+import frc.robot.commands.ArcadeDrive;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.commands.TankDrive;
 import frc.robot.subsystems.DriveTrain;
@@ -51,7 +52,7 @@ public class RobotContainer {
     XboxController pilot = new XboxController(0);
 
     // Shooter commands and subclass in this branch, or delete? Prob delete right so rn, to go straight, its up on both sticks?
-    drivetrain.setDefaultCommand(new TankDrive(drivetrain, pilot::getLeftY, pilot::getRightY)); 
+    drivetrain.setDefaultCommand(new ArcadeDrive(drivetrain, pilot::getLeftY, pilot::getRightY)); 
 
   }
 

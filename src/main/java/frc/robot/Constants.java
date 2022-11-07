@@ -29,6 +29,8 @@ public final class Constants {
         public static final int right_back = 14;
         public static final int left_back = 12;
 
+        public static final double rotation_speed = 0.7;
+
     }
 
 

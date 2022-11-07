@@ -5,6 +5,7 @@
 package frc.robot.subsystems;
 
 
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.MotorController;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -22,7 +23,9 @@ public class DriveTrain extends SubsystemBase {
 
   private MotorControllerGroup leftMotors = new MotorControllerGroup(leftFrontMotor, leftBackMotor);
   private MotorControllerGroup rightMotors = new MotorControllerGroup(rightFrontMotor, rightBackMotor);
+  
 
+  private DifferentialDrive drive = new DifferentialDrive(leftMotors, rightMotors);
 
 
   public DriveTrain() {
@@ -38,10 +41,14 @@ public class DriveTrain extends SubsystemBase {
   public void tankDrive(double left_speed, double right_speed){
       leftMotors.set(left_speed);
       rightMotors.set(right_speed);
-    //   setDefaultCommand(x);
 
   }
 
+
+  public void arcadeDrive(double speed, double rotation){
+    drive.arcadeDrive(speed, rotation * Constants.DriveTrain.rotation_speed); // why was it negative ration in the btab code? 
+
+  }
 
 
 

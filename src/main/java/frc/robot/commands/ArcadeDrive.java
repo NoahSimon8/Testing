@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.DriveTrain;
 
 /** An example command that uses an example subsystem. */
-public class TankDrive extends CommandBase {
+public class ArcadeDrive extends CommandBase {
 
   
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
@@ -21,10 +21,8 @@ public class TankDrive extends CommandBase {
 
   private final DriveTrain drivetrain;
   
-  private DoubleSupplier left;
-  private DoubleSupplier right;
-
-
+  private DoubleSupplier forward;
+  private DoubleSupplier side;
 
   /**
    * Creates a new ExampleCommand.
@@ -33,14 +31,10 @@ public class TankDrive extends CommandBase {
    */
 
 
-
-
-  public TankDrive(DriveTrain drivetrain, DoubleSupplier left, DoubleSupplier right) {
+  public ArcadeDrive(DriveTrain drivetrain, DoubleSupplier forward, DoubleSupplier side) {
     this.drivetrain = drivetrain;
-    this.left = left;
-    this.right = right;
-
-
+    this.forward = forward;
+    this.side = side;
 
 
     // Use addRequirements() here to declare subsystem dependencies.
@@ -51,7 +45,7 @@ public class TankDrive extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    drivetrain.tankDrive(0,0);
+    drivetrain.arcadeDrive(0,0);
 
   }
 
@@ -59,14 +53,14 @@ public class TankDrive extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    drivetrain.tankDrive(left.getAsDouble(),right.getAsDouble());
+    drivetrain.arcadeDrive(forward.getAsDouble(),side.getAsDouble());
 
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    drivetrain.tankDrive(0,0);
+    drivetrain.arcadeDrive(0,0);
 
   }
 
